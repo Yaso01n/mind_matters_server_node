@@ -31,7 +31,7 @@ connectionModule.connect((err) => {
   console.log('DATABASE CONNECTED');
   
   MindMatters_app.listen(PORT, () => {
-    console.log(`SERVER: http://localhost:${PORT}`);
+    console.log(`SERVER: https://mindmattersservernode-git-main-yaso01ns-projects.vercel.app${PORT}`);
   });
 });
 //====================================================================
