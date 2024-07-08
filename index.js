@@ -14,7 +14,7 @@ const OrganizationRoute = require('./routes/organizationRouter');
 
 
 const MindMatters_app = express();
-MindMatters_app.use(cors());
+MindMatters_app.use(cors({ origin: '*' }));
 const PORT =  process.env.PORT || 3000;
 
 // //====================================================================
