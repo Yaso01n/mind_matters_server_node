@@ -14,16 +14,10 @@ const OrganizationRoute = require('./routes/organizationRouter');
 
 const MindMatters_app = express();
 
-// Set CORS options
-const corsOptions = {
-  origin: ['http://localhost:3000', 'https://your-flutter-app-domain.com'], // Adjust the allowed origins as needed
-  optionsSuccessStatus: 200,
-};
-
-MindMatters_app.use(cors(corsOptions));
+// Set CORS options to allow requests from any origin
+MindMatters_app.use(cors({ origin: '*' }));
 
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || 'http://localhost'; // Define HOST using an environment variable or a default value
 
 connectionModule.connect((err) => {
   if (err) {
@@ -34,7 +28,7 @@ connectionModule.connect((err) => {
   console.log('DATABASE CONNECTED');
 
   MindMatters_app.listen(PORT, () => {
-    console.log(`SERVER: ${HOST}:${PORT}`);
+    console.log(`SERVER: https://mindmattersservernode-git-main-yaso01ns-projects.vercel.app:${PORT}`);
   });
 });
 
@@ -49,10 +43,6 @@ MindMatters_app.use('/', OrganizationRoute);
 MindMatters_app.use((req, res, next) => {
   res.status(404).send('404: NOT_FOUND');
 });
-
-
-
-
 
 
 
@@ -90,7 +80,7 @@ MindMatters_app.use((req, res, next) => {
 //   console.log('DATABASE CONNECTED');
   
 //   MindMatters_app.listen(PORT, () => {
-//     console.log(`SERVER: https://mindmattersservernode-git-main-yaso01ns-projects.vercel.app${PORT}`);
+//     console.log(`SERVER: https://mindmattersservernode-git-main-yaso01ns-projects.vercel.app/${PORT}`);
 //   });
 // });
 // //====================================================================
